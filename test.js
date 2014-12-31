@@ -80,5 +80,6 @@ describe('chickencurry', function() {
     expect(joinCurry('_','_')('chicken')).to.equal('_chicken_');
     expect(joinCurry).to.be.a('function');
     expect(joinCurry('_')('_')('chicken')).to.equal('_chicken_');
+    expect(joinCurry('_', '_', 'chicken')).to.equal('_chicken_');
   });
 });
