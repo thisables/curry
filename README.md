@@ -48,6 +48,10 @@ join_('chicken', 'curry'); // => 'chicken_curry'
 You can curry a function and define the arguments for the curryied functions later.
 
 ```js
+function add(a, b) {
+  return a + b;
+}
+
 var curryiedAdd = curry(add); // no arguments passed to curry
 var add1 = curryiedAdd(1);
 var add2 = curryiedAdd(2);
