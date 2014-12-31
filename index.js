@@ -14,14 +14,25 @@ function mergeArguments(args, curryArgs) {
   return mergedArgs.concat(slice.call(args, iArgs));
 }
 
+function countArgs(args) {
+  var count = 0;
+  for (var i = 0; i < args.length; i++) {
+    if (args[i] !== __) {
+      count = count + 1;
+    }
+  }
+  return count;
+}
+
 function recurry(fn, curryArgs) {
   return function() {
-    var args = curryArgs.concat(slice.call(arguments));
+    var args = slice.call(arguments),
+      mergedArgs = mergeArguments(args, curryArgs);
 
-    if (fn.length <= args.length) {
-      return fn.apply(null, args);
+    if (fn.length <= countArgs(mergedArgs)) {
+      return fn.apply(null, mergedArgs);
     } else {
-      return recurry(fn, args);
+      return recurry(fn, mergedArgs);
     }
   }
 }
