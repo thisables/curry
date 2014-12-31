@@ -1,0 +1,30 @@
+{
+  "name": "chickencurry",
+  "version": "1.0.1",
+  "description": "Add some chicken curry to your functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/stoeffel/chickencurry"
+  },
+  "keywords": [
+    "function",
+    "curry",
+    "functional"
+  ],
+  "author": "stoeffel",
+  "license": "MIT",
+  "bugs": {
+    "url": "http://github.com/stoeffel/chickencurry/issues"
+  },
+  "homepage": "http://github.com/stoeffel/chickencurry",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.1.0",
+    "sinon": "^1.12.2"
+  },
+  "dependencies": {}
+}
