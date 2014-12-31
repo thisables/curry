@@ -31,5 +31,5 @@ function join(a, b, sep) {
 var __ = curry.__;
 var join_ = curry(join, __, __, '_');
 
-join('chicken', 'curry'); // => 'chicken_curry'
+join_('chicken', 'curry'); // => 'chicken_curry'
 ```
