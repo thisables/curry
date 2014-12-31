@@ -4,7 +4,7 @@ var curry = require('./index.js'),
 
 function namedFunction(name) {}
 describe('chickencurry', function() {
-  var add, join;
+  var obj = {}, add, join;
   beforeEach(function() {
     add = function(a, b) {
       return a + b;
@@ -12,6 +12,10 @@ describe('chickencurry', function() {
 
     join = function(a, b, sep) {
       return a + sep + b;
+    };
+    obj.greeting = 'Hello';
+    obj.greet = function(name) {
+      return this.greeting + ' ' + name;
     };
   });
 
@@ -42,6 +46,7 @@ describe('chickencurry', function() {
     var __ = curry.__;
     var join_ = curry(join, __, __, '_');
     var join_A = curry(join, __, 'A', '_');
+    var join_B = curry(join, undefined, 'B', '_');
     var joinA_ = curry(join, 'A', __, '_');
     var spy = sinon.spy();
     var spyCurry = curry(spy, __, 2);
@@ -49,10 +54,17 @@ describe('chickencurry', function() {
     expect(join_('a', 'b')).to.equal('a_b');
     expect(join_A('a')).to.equal('a_A');
     expect(join_A('b')).to.equal('b_A');
+    expect(join_B('b')).to.equal('b_B');
     expect(joinA_('a')).to.equal('A_a');
     spyCurry(1);
     expect(spy.calledWith(1, 2)).to.be.ok();
     spyCurry(1, 3);
     expect(spy.calledWith(1, 2, 3)).to.be.ok();
+  });
+
+  it('should keep the scope of a function', function() {
+    var greetChicken = curry(obj.greet.bind(obj), 'Chicken');
+
+    expect(greetChicken()).to.equal('Hello Chicken');
   });
 });

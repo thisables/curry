@@ -32,4 +32,14 @@ var __ = curry.__;
 var join_ = curry(join, __, __, '_');
 
 join_('chicken', 'curry'); // => 'chicken_curry'
+
+var obj = {
+  name: 'stoeffel',
+  myFunc: function(arg) {
+    return arg + this.name;
+  }
+};
+
+var myFunc = curry(obj.myFunc.bind(obj), 'Hello ');
+myFunc(); // => 'Hello stoeffel'
 ```
