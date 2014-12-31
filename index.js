@@ -1,12 +1,12 @@
 var slice = Array.prototype.slice,
     __;
 
-function mergeArguments(args, curriedArgs) {
-  var mergedArgs = slice.call(curriedArgs),
+function mergeArguments(args, curryArgs) {
+  var mergedArgs = slice.call(curryArgs),
     iArgs = 0;
 
-  for (var i = 0; i < curriedArgs.length; i++) {
-    if (curriedArgs[i] === __) {
+  for (var i = 0; i < curryArgs.length; i++) {
+    if (curryArgs[i] === __) {
       mergedArgs[i] = args[iArgs];
       iArgs = iArgs + 1;
     }
@@ -14,9 +14,9 @@ function mergeArguments(args, curriedArgs) {
   return mergedArgs.concat(slice.call(args, iArgs));
 }
 
-function recurry(fn, curriedArgs) {
+function recurry(fn, curryArgs) {
   return function() {
-    var args = curriedArgs.concat(slice.call(arguments));
+    var args = curryArgs.concat(slice.call(arguments));
 
     if (fn.length <= args.length) {
       return fn.apply(null, args);
@@ -27,12 +27,12 @@ function recurry(fn, curriedArgs) {
 }
 
 module.exports = function(fn) {
-  var curriedArgs = slice.call(arguments, 1);
+  var curryArgs = slice.call(arguments, 1);
 
-  if (curriedArgs.length > 0) {
+  if (curryArgs.length > 0) {
     return function() {
       var args = slice.call(arguments),
-        mergedArgs = mergeArguments(args, curriedArgs);
+        mergedArgs = mergeArguments(args, curryArgs);
 
       return fn.apply(null, mergedArgs);
     };
