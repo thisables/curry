@@ -43,6 +43,19 @@ var join_ = curry(join, __, __, '_');
 join_('chicken', 'curry'); // => 'chicken_curry'
 ```
 
+### Recurry
+
+You can curry a function and define the arguments for the curryied functions later.
+
+```js
+var curryiedAdd = curry(add); // no arguments passed to curry
+var add1 = curryiedAdd(1);
+var add2 = curryiedAdd(2);
+
+add1(3); // => 4
+add2(3); // => 5
+```
+
 ### Function scope
 
 If you want to curry a method of an object you have to bind the scope to the function.

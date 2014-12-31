@@ -67,4 +67,18 @@ describe('chickencurry', function() {
 
     expect(greetChicken()).to.equal('Hello Chicken');
   });
+
+  it('should wrap the function if no argument to curry is passed', function() {
+    var addCurry = curry(add);
+    var joinCurry = curry(join);
+
+    expect(addCurry).to.be.a('function');
+    expect(addCurry(1)).to.be.a('function');
+    expect(addCurry(1)(2)).to.equal(3);
+
+    expect(joinCurry).to.be.a('function');
+    expect(joinCurry('_','_')('chicken')).to.equal('_chicken_');
+    expect(joinCurry).to.be.a('function');
+    expect(joinCurry('_')('_')('chicken')).to.equal('_chicken_');
+  });
 });
