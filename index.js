@@ -40,16 +40,7 @@ function recurry(fn, curryArgs) {
 module.exports = function(fn) {
   var curryArgs = slice.call(arguments, 1);
 
-  if (curryArgs.length > 0) {
-    return function() {
-      var args = slice.call(arguments),
-        mergedArgs = mergeArguments(args, curryArgs);
-
-      return fn.apply(null, mergedArgs);
-    };
-  } else {
-    return recurry(fn, []);
-  }
+  return recurry(fn, curryArgs);
 };
 
 module.exports.__ = __;
