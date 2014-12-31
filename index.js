@@ -1,22 +1,28 @@
-var __ = undefined;
+var slice = Array.prototype.slice,
+    __;
+
+function mergeArguments(args, curriedArgs) {
+  var mergedArgs = slice.call(curriedArgs),
+    iArgs = 0;
+
+  for (var i = 0; i < curriedArgs.length; i++) {
+    if (curriedArgs[i] === __) {
+      mergedArgs[i] = args[iArgs];
+      iArgs = iArgs + 1;
+    }
+  }
+  return mergedArgs.concat(slice.call(args, iArgs));
+}
 
 module.exports = function(fn) {
-  var curriedArgs = Array.prototype.slice.call(arguments, 1);
+  var curriedArgs = slice.call(arguments, 1);
 
   return function() {
-    var args = Array.prototype.slice.call(arguments),
-        iArgs = 0,
-        mergedArgs = curriedArgs.slice(0);
+    var args = slice.call(arguments),
+      mergedArgs = mergeArguments(args, curriedArgs);
 
-    for (var i = 0; i < curriedArgs.length; i++) {
-      if (curriedArgs[i] === __) {
-        mergedArgs[i] = args[iArgs];
-        iArgs = iArgs + 1;
-      }
-    }
-
-    return fn.apply(null, mergedArgs.concat(args.slice(iArgs)));
-  }
+    return fn.apply(null, mergedArgs);
+  };
 };
 
 module.exports.__ = __;
