@@ -2,7 +2,6 @@ var curry = require('./index.js'),
   sinon = require('sinon'),
   expect = require('expect.js');
 
-function namedFunction(name) {}
 describe('chickencurry', function() {
   var obj = {}, add, join;
   beforeEach(function() {
@@ -71,6 +70,7 @@ describe('chickencurry', function() {
   it('should wrap the function if no argument to curry is passed', function() {
     var addCurry = curry(add);
     var joinCurry = curry(join);
+    var joinDot = curry(join, '.');
 
     expect(addCurry).to.be.a('function');
     expect(addCurry(1)).to.be.a('function');

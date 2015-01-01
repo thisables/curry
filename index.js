@@ -37,7 +37,7 @@ function recurry(fn, curryArgs) {
   }
 }
 
-module.exports = function(fn) {
+module.exports = function curry(fn) {
   var curryArgs = slice.call(arguments, 1);
 
   return recurry(fn, curryArgs);
