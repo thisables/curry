@@ -1,26 +1,45 @@
 var slice = Array.prototype.slice,
     __;
 
-function mergeArguments(args, curryArgs) {
-  var mergedArgs = slice.call(curryArgs),
-    iArgs = 0;
-
-  for (var i = 0; i < curryArgs.length; i++) {
-    if (curryArgs[i] === __) {
-      mergedArgs[i] = args[iArgs];
-      iArgs = iArgs + 1;
-    }
+function forEach(arr, fn) {
+  for (var i = 0; i < arr.length; i++) {
+    fn(i, arr[i]);
   }
-  return mergedArgs.concat(slice.call(args, iArgs));
+}
+
+function map(arr, fn) {
+  var newArr = [];
+
+  forEach(arr, function(key, item) {
+    newArr.push(fn(key, item));
+  });
+
+  return newArr;
+}
+
+function mergeArguments(args, curryArgs) {
+  var mergedArgs = [];
+
+  mergedArgs = map(curryArgs, function(key, item) {
+    if (item === __) {
+      return args.shift()
+    } else {
+      return item;
+    }
+  });
+
+  return mergedArgs.concat(args);
 }
 
 function countArgs(args) {
   var count = 0;
-  for (var i = 0; i < args.length; i++) {
-    if (args[i] !== __) {
+
+  forEach(args, function(key, item) {
+    if (item !== __) {
       count = count + 1;
     }
-  }
+  });
+
   return count;
 }
 
@@ -34,7 +53,7 @@ function recurry(fn, curryArgs) {
     } else {
       return recurry(fn, mergedArgs);
     }
-  }
+  };
 }
 
 module.exports = function curry(fn) {
