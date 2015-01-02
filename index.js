@@ -1,6 +1,6 @@
-var slice = Array.prototype.slice,
-    merge = require('./lib/merge'),
+var merge = require('./lib/merge'),
     countDefinedItems = require('./lib/countDefinedItems'),
+    slice = Array.prototype.slice,
     __;
 
 
@@ -13,7 +13,12 @@ function curry(fn, curryArgs) {
       mergedArgs = merge(args, curryArgs);
       return fn.apply(null, mergedArgs);
     } else {
-      return curry(fn, curryArgs.concat(args));
+      mergedArgs = curryArgs.concat(args);
+      if (fn.length >= mergedArgs.length) {
+        return curry(fn, mergedArgs);
+      } else {
+        return curry(fn, merge(args, curryArgs));
+      }
     }
   };
 }

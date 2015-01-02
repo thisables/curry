@@ -68,26 +68,53 @@ describe('chickencurry', function() {
   });
 
   it('should wrap the function if no argument to curry is passed', function() {
+    var __ = curry.__;
     var addCurry = curry(add);
     var joinCurry = curry(join);
     var joinDot = curry(join, '.');
 
     expect(addCurry).to.be.a('function');
     expect(addCurry(1)).to.be.a('function');
+    expect(addCurry(1, 2)).to.equal(3);
     expect(addCurry(1)(2)).to.equal(3);
+    expect(addCurry(__, 2)(1)).to.equal(3);
+    expect(addCurry(__)(2)(1)).to.equal(3);
+    expect(addCurry(2, __)(1)).to.equal(3);
+    expect(addCurry(2)(__)(1)).to.equal(3);
 
     expect(joinCurry).to.be.a('function');
+    expect(joinCurry('_')).to.be.a('function');
+    expect(joinCurry('_', '_')).to.be.a('function');
+    expect(joinCurry('_','_', 'chicken')).to.equal('_chicken_');
+    expect(joinCurry('_')('_')).to.be.a('function');
     expect(joinCurry('_','_')('chicken')).to.equal('_chicken_');
-    expect(joinCurry).to.be.a('function');
     expect(joinCurry('_')('_')('chicken')).to.equal('_chicken_');
-    expect(joinCurry('_', '_', 'chicken')).to.equal('_chicken_');
+    expect(joinCurry('_')('_', 'fish')).to.equal('_fish_');
+
+    expect(joinCurry(__)).to.be.a('function');
+    expect(joinCurry(__, '_')).to.be.a('function');
+    expect(joinCurry(__,'_', 'chicken')).to.be.a('function');
+    expect(joinCurry(__,'_', 'chicken')('_')).to.equal('_chicken_');
+    expect(joinCurry(__)('_')).to.be.a('function');
+    expect(joinCurry(__,'_')('chicken')).to.be.a('function');
+    expect(joinCurry(__,'_')('chicken')('$')).to.equal('$chicken_');
+
     expect(joinCurry(curry.__,'_')('_', 'chicken')).to.equal('_chicken_');
     expect(joinCurry('_', curry.__)('-', 'chicken')).to.equal('_chicken-');
-    expect(joinCurry(curry.__)('.')('curry')('.')).to.equal('.curry.');
+    expect(joinCurry(curry.__)('.')('curry')('$')).to.equal('$curry.');
     expect(joinCurry('_', curry.__, 'chicken')('-')).to.equal('_chicken-');
     expect(joinCurry(curry.__, '_', 'chicken')('-')).to.equal('-chicken_');
-    expect(joinDot('.')('chicken')).to.equal('.chicken.');
-    expect(joinDot('.', 'chicken')).to.equal('.chicken.');
+
+    expect(joinDot('$', 'chicken')).to.equal('.chicken$');
+    expect(joinDot('$')('chicken')).to.equal('.chicken$');
+    expect(joinDot(__, 'chicken')('$')).to.equal('.chicken$');
+    expect(joinDot(__)('chicken')('$')).to.equal('.chicken$');
+    expect(joinDot('$', __)('chicken')).to.equal('.chicken$');
+    expect(joinDot('$')(__)('chicken')).to.equal('.chicken$');
+    expect(joinDot(__, __)('$', 'chicken')).to.equal('.chicken$');
+    expect(joinDot(__, __)('$')('chicken')).to.equal('.chicken$');
+    expect(joinDot(__)(__)('$', 'chicken')).to.equal('.chicken$');
+    expect(joinDot(__)(__)('$')('chicken')).to.equal('.chicken$');
   });
 
   it('should be possible to curry arguments of any type', function() {
