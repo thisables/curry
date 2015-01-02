@@ -88,4 +88,20 @@ describe('chickencurry', function() {
     expect(joinDot('.')('chicken')).to.equal('.chicken.');
     expect(joinDot('.', 'chicken')).to.equal('.chicken.');
   });
+
+  it('should be possible to curry arguments of any type', function() {
+    var ajax = function(config, callback) {
+      callback('response for: ' + config.url);
+    };
+    var spy = sinon.spy();
+    var ajaxSpy = curry(ajax, curry.__, spy);
+    var ajaxGoogle = curry(ajax, { url: 'google.ch' });
+
+    ajaxSpy({ url: 'stoeffel.ch' });
+    expect(spy.calledWith('response for: stoeffel.ch')).to.be.ok();
+
+    ajaxGoogle(function(response) {
+      expect(response).to.equal('response for: google.ch');
+    });
+  });
 });
