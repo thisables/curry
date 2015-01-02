@@ -41,6 +41,13 @@ var add2 = curryiedAdd(2);
 
 add1(3); // => 4
 add2(3); // => 5
+
+function sum3(a, b, c) {
+  return a + b + c;
+}
+
+curry(sum3)(1, 2)(3) // => 6
+curry(sum3)(1)(2)(3) // => 6
 ```
 
 ### Placeholder
