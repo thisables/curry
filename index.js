@@ -22,7 +22,7 @@ function mergeArguments(args, curryArgs) {
 
   mergedArgs = map(curryArgs, function(key, item) {
     if (item === __) {
-      return args.shift()
+      return args.shift();
     } else {
       return item;
     }
@@ -46,20 +46,21 @@ function countArgs(args) {
 function recurry(fn, curryArgs) {
   return function() {
     var args = slice.call(arguments),
-      mergedArgs = mergeArguments(args, curryArgs);
+      mergedArgs = [];
 
-    if (fn.length <= countArgs(mergedArgs)) {
+    if (fn.length <= countArgs(curryArgs.concat(args))) {
+      mergedArgs = mergeArguments(args, curryArgs);
       return fn.apply(null, mergedArgs);
     } else {
-      return recurry(fn, mergedArgs);
+      return recurry(fn, curryArgs.concat(args));
     }
   };
 }
 
 module.exports = function curry(fn) {
-  var curryArgs = slice.call(arguments, 1);
+  var args = slice.call(arguments, 1);
 
-  return recurry(fn, curryArgs);
+  return recurry(fn, args);
 };
 
 module.exports.__ = __;
