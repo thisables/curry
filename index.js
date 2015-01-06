@@ -4,20 +4,20 @@ var merge = require('./lib/merge'),
     __;
 
 
-function curry(fn, curryArgs) {
+function curry(fn, length, curryArgs) {
   return function() {
     var args = slice.call(arguments),
+      concatArgs = curryArgs.concat(args);
       mergedArgs = [];
 
-    if (fn.length <= countDefinedItems(curryArgs.concat(args))) {
+    if (length <= countDefinedItems(concatArgs)) {
       mergedArgs = merge(args, curryArgs);
       return fn.apply(null, mergedArgs);
     } else {
-      mergedArgs = curryArgs.concat(args);
-      if (fn.length >= mergedArgs.length) {
-        return curry(fn, mergedArgs);
+      if (length >= concatArgs.length) {
+        return curry(fn, length, concatArgs);
       } else {
-        return curry(fn, merge(args, curryArgs));
+        return curry(fn, length, merge(args, curryArgs));
       }
     }
   };
@@ -26,7 +26,13 @@ function curry(fn, curryArgs) {
 module.exports = function(fn) {
   var args = slice.call(arguments, 1);
 
-  return curry(fn, args);
+  return curry(fn, fn.length, args);
+};
+
+module.exports.n = function(fn, length) {
+  var args = slice.call(arguments, 2);
+
+  return curry(fn, length + 1, args);
 };
 
 module.exports.__ = __;

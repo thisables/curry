@@ -3,7 +3,7 @@ var curry = require('./index.js'),
   expect = require('expect.js');
 
 describe('chickencurry', function() {
-  var obj = {}, add, join;
+  var obj = {}, add, join, joinArgs;
   beforeEach(function() {
     add = function(a, b) {
       return a + b;
@@ -11,6 +11,9 @@ describe('chickencurry', function() {
 
     join = function(a, b, sep) {
       return a + sep + b;
+    };
+    joinArgs = function() {
+      return Array.prototype.slice.call(arguments).join();
     };
     obj.greeting = 'Hello';
     obj.greet = function(name) {
@@ -131,5 +134,14 @@ describe('chickencurry', function() {
     ajaxGoogle(function(response) {
       expect(response).to.equal('response for: google.ch');
     });
+  });
+
+  it('should curry n arguments', function() {
+    expect(curry.n(joinArgs, 0)(4)).to.equal('4');
+    expect(curry.n(joinArgs, 1)(1, 2)).to.equal('1,2');
+    expect(curry.n(joinArgs, 3)(1,2,3)(4)).to.equal('1,2,3,4');
+    expect(curry.n(joinArgs, 3)(1)(2)(3)(4)).to.equal('1,2,3,4');
+    expect(curry.n(joinArgs, 3, 1, 2, 3)(4)).to.equal('1,2,3,4');
+    expect(curry.n(joinArgs, 3, void 0, 2, 3, 4)(0)).to.equal('0,2,3,4');
   });
 });

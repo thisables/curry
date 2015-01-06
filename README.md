@@ -48,6 +48,13 @@ function sum3(a, b, c) {
 
 curry(sum3)(1, 2)(3) // => 6
 curry(sum3)(1)(2)(3) // => 6
+
+function join() {
+  return Array.prototype.slice.call(arguments).join();
+}
+
+// Curry n arguments
+curry.n(join, 2)(1, 2)(3) // => '1,2,3'
 ```
 
 ### Placeholder
