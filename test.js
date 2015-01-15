@@ -1,31 +1,34 @@
 var curry = require('./index.js'),
   sinon = require('sinon'),
-  expect = require('expect.js');
+  expect = require('expect.js'),
+  obj;
 
-describe('chickencurry', function() {
-  var obj = {}, add, join, joinArgs;
-  beforeEach(function() {
-    add = function(a, b) {
-      return a + b;
-    };
+function add(a, b) {
+  return a + b;
+}
 
-    join = function(a, b, sep) {
-      return a + sep + b;
-    };
-    joinArgs = function() {
-      return Array.prototype.slice.call(arguments).join();
-    };
-    obj.greeting = 'Hello';
-    obj.greet = function(name) {
-      return this.greeting + ' ' + name;
-    };
-  });
+function join(a, b, sep) {
+  return a + sep + b;
+}
 
-  it('should return a function', function() {
+function joinArgs() {
+  return Array.prototype.slice.call(arguments).join();
+}
+
+obj = {
+  greeting : 'Hello',
+
+  greet : function(name) {
+    return this.greeting + ' ' + name;
+  }
+};
+
+describe('chickencurry', () => {
+  it('should return a function', () => {
     expect(curry(add)).to.be.a('function');
   });
 
-  it('should create a curryied function with the given arguments', function() {
+  it('should create a curryied function with the given arguments', () => {
     var add1 = curry(add, 1);
     var add12 = curry(add, 1, 2);
     var spy = sinon.spy();
@@ -40,11 +43,11 @@ describe('chickencurry', function() {
     expect(spy.calledWith(1, 2, 3)).to.be.ok();
   });
 
-  it('should have a placeholder variable', function() {
+  it('should have a placeholder variable', () => {
     expect(curry.__).to.be(undefined);
   });
 
-  it('should create a curryied function using a placeholder', function() {
+  it('should create a curryied function using a placeholder', () => {
     var __ = curry.__;
     var join_ = curry(join, __, __, '_');
     var join_A = curry(join, __, 'A', '_');
@@ -64,13 +67,13 @@ describe('chickencurry', function() {
     expect(spy.calledWith(1, 2, 3)).to.be.ok();
   });
 
-  it('should keep the scope of a function', function() {
+  it('should keep the scope of a function', () => {
     var greetChicken = curry(obj.greet.bind(obj), 'Chicken');
 
     expect(greetChicken()).to.equal('Hello Chicken');
   });
 
-  it('should wrap the function if no argument to curry is passed', function() {
+  it('should wrap the function if no argument to curry is passed', () => {
     var __ = curry.__;
     var addCurry = curry(add);
     var joinCurry = curry(join);
@@ -88,21 +91,21 @@ describe('chickencurry', function() {
     expect(joinCurry).to.be.a('function');
     expect(joinCurry('_')).to.be.a('function');
     expect(joinCurry('_', '_')).to.be.a('function');
-    expect(joinCurry('_','_', 'chicken')).to.equal('_chicken_');
+    expect(joinCurry('_', '_', 'chicken')).to.equal('_chicken_');
     expect(joinCurry('_')('_')).to.be.a('function');
-    expect(joinCurry('_','_')('chicken')).to.equal('_chicken_');
+    expect(joinCurry('_', '_')('chicken')).to.equal('_chicken_');
     expect(joinCurry('_')('_')('chicken')).to.equal('_chicken_');
     expect(joinCurry('_')('_', 'fish')).to.equal('_fish_');
 
     expect(joinCurry(__)).to.be.a('function');
     expect(joinCurry(__, '_')).to.be.a('function');
-    expect(joinCurry(__,'_', 'chicken')).to.be.a('function');
-    expect(joinCurry(__,'_', 'chicken')('_')).to.equal('_chicken_');
+    expect(joinCurry(__, '_', 'chicken')).to.be.a('function');
+    expect(joinCurry(__, '_', 'chicken')('_')).to.equal('_chicken_');
     expect(joinCurry(__)('_')).to.be.a('function');
-    expect(joinCurry(__,'_')('chicken')).to.be.a('function');
-    expect(joinCurry(__,'_')('chicken')('$')).to.equal('$chicken_');
+    expect(joinCurry(__, '_')('chicken')).to.be.a('function');
+    expect(joinCurry(__, '_')('chicken')('$')).to.equal('$chicken_');
 
-    expect(joinCurry(curry.__,'_')('_', 'chicken')).to.equal('_chicken_');
+    expect(joinCurry(curry.__, '_')('_', 'chicken')).to.equal('_chicken_');
     expect(joinCurry('_', curry.__)('-', 'chicken')).to.equal('_chicken-');
     expect(joinCurry(curry.__)('.')('curry')('$')).to.equal('$curry.');
     expect(joinCurry('_', curry.__, 'chicken')('-')).to.equal('_chicken-');
@@ -120,15 +123,19 @@ describe('chickencurry', function() {
     expect(joinDot(__)(__)('$')('chicken')).to.equal('.chicken$');
   });
 
-  it('should be possible to curry arguments of any type', function() {
+  it('should be possible to curry arguments of any type', () => {
     var ajax = function(config, callback) {
       callback('response for: ' + config.url);
     };
     var spy = sinon.spy();
     var ajaxSpy = curry(ajax, curry.__, spy);
-    var ajaxGoogle = curry(ajax, { url: 'google.ch' });
+    var ajaxGoogle = curry(ajax, {
+      url: 'google.ch'
+    });
 
-    ajaxSpy({ url: 'stoeffel.ch' });
+    ajaxSpy({
+      url: 'stoeffel.ch'
+    });
     expect(spy.calledWith('response for: stoeffel.ch')).to.be.ok();
 
     ajaxGoogle(function(response) {
@@ -136,10 +143,10 @@ describe('chickencurry', function() {
     });
   });
 
-  it('should curry n arguments', function() {
+  it('should curry n arguments', () => {
     expect(curry.n(joinArgs, 0)(4)).to.equal('4');
     expect(curry.n(joinArgs, 1)(1, 2)).to.equal('1,2');
-    expect(curry.n(joinArgs, 3)(1,2,3)(4)).to.equal('1,2,3,4');
+    expect(curry.n(joinArgs, 3)(1, 2, 3)(4)).to.equal('1,2,3,4');
     expect(curry.n(joinArgs, 3)(1)(2)(3)(4)).to.equal('1,2,3,4');
     expect(curry.n(joinArgs, 3, 1, 2, 3)(4)).to.equal('1,2,3,4');
     expect(curry.n(joinArgs, 3, void 0, 2, 3, 4)(0)).to.equal('0,2,3,4');

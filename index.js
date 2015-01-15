@@ -7,7 +7,7 @@ var merge = require('./lib/merge'),
 function curry(fn, length, curryArgs) {
   return function() {
     var args = slice.call(arguments),
-      concatArgs = curryArgs.concat(args);
+      concatArgs = curryArgs.concat(args),
       mergedArgs = [];
 
     if (length <= countDefinedItems(concatArgs)) {

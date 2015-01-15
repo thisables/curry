@@ -4,7 +4,7 @@
   "description": "Add some chicken curry to your functions",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter nyan"
+    "test": "mocha --reporter nyan --compilers js:mocha-traceur"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "expect.js": "^0.3.1",
     "mocha": "^2.1.0",
+    "mocha-traceur": "^2.1.0",
     "sinon": "^1.12.2"
   },
   "dependencies": {}
