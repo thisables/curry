@@ -54,7 +54,7 @@ function join() {
 }
 
 // Curry n arguments
-curry.n(join, 2)(1, 2)(3) // => '1,2,3'
+curry.n(join, 3)(1, 2)(3) // => '1,2,3'
 ```
 
 ### Placeholder

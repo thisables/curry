@@ -144,11 +144,11 @@ describe('chickencurry', () => {
   });
 
   it('should curry n arguments', () => {
-    expect(curry.n(joinArgs, 0)(4)).to.equal('4');
-    expect(curry.n(joinArgs, 1)(1, 2)).to.equal('1,2');
-    expect(curry.n(joinArgs, 3)(1, 2, 3)(4)).to.equal('1,2,3,4');
-    expect(curry.n(joinArgs, 3)(1)(2)(3)(4)).to.equal('1,2,3,4');
-    expect(curry.n(joinArgs, 3, 1, 2, 3)(4)).to.equal('1,2,3,4');
-    expect(curry.n(joinArgs, 3, void 0, 2, 3, 4)(0)).to.equal('0,2,3,4');
+    expect(curry.n(joinArgs, 1)(4)).to.equal('4');
+    expect(curry.n(joinArgs, 2)(1, 2)).to.equal('1,2');
+    expect(curry.n(joinArgs, 4)(1, 2, 3)(4)).to.equal('1,2,3,4');
+    expect(curry.n(joinArgs, 4)(1)(2)(3)(4)).to.equal('1,2,3,4');
+    expect(curry.n(joinArgs, 4, 1, 2, 3)(4)).to.equal('1,2,3,4');
+    expect(curry.n(joinArgs, 4, void 0, 2, 3, 4)(0)).to.equal('0,2,3,4');
   });
 });

@@ -32,7 +32,7 @@ module.exports = function(fn) {
 module.exports.n = function(fn, length) {
   var args = slice.call(arguments, 2);
 
-  return curry(fn, length + 1, args);
+  return curry(fn, length, args);
 };
 
 module.exports.__ = __;
