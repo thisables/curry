@@ -53,8 +53,14 @@ function join() {
   return Array.prototype.slice.call(arguments).join();
 }
 
-// Curry n arguments
-curry.n(join, 3)(1, 2)(3) // => '1,2,3'
+```
+
+### Curry n arguments
+
+```js
+var curryN = require('chickencurry/N');
+
+curryN(join, 3)(1, 2)(3) // => '1,2,3'
 ```
 
 ### Placeholder
@@ -66,7 +72,7 @@ function join(a, b, sep) {
   return a + sep + b;
 };
 
-var __ = curry.__;
+var __ = require('chickencurry/__');
 
 var join_ = curry(join, __, __, '_'); 
 // or var join_ = curry(join, undefined, undefined, '_'); 
