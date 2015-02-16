@@ -1,6 +1,4 @@
 import curry from './lib/curry';
 
 
-export default function(fn, length, ...args) {
-  return curry(fn, length, args);
-}
+export default (fn, length, ...args) => curry(fn, length, args);
