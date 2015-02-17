@@ -1,3 +1,2 @@
-export default function(args) {
-  return [for (i of args) if (typeof i !== 'undefined') i].length;
-};
+export default (args) => 
+  [for (i of args) if (typeof i !== 'undefined') i].length;

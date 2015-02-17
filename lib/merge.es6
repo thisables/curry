@@ -1,11 +1,7 @@
-function _merge(args, i) {
-  if (typeof i === 'undefined') {
-    return args.shift();
-  } else {
-    return i;
-  }
-}
+let _merge = (args, i) =>
+  (typeof i === 'undefined')?
+    args.shift():
+    i;
 
-module.exports = function merge(args, curryArgs) {
-  return [for (i of curryArgs) _merge(args, i)].concat(args);
-};
+export default (args, curryArgs) =>
+  [for (i of curryArgs) _merge(args, i)].concat(args);
