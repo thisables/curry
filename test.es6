@@ -1,6 +1,9 @@
 import curry from './';
 import curryN from './N';
 import __ from './__';
+import curry1 from './1';
+import curry2 from './2';
+import curry3 from './3';
 
 import sinon from 'sinon';
 import expect from 'expect.js';
@@ -154,5 +157,17 @@ describe('chickencurry', () => {
     expect(curryN(joinArgs, 4)(1)(2)(3)(4)).to.equal('1,2,3,4');
     expect(curryN(joinArgs, 4, 1, 2, 3)(4)).to.equal('1,2,3,4');
     expect(curryN(joinArgs, 4, void 0, 2, 3, 4)(0)).to.equal('0,2,3,4');
+  });
+  
+  it('should curry 1 arguments', () => {
+    expect(curry1(joinArgs)(4)).to.equal('4');
+  });
+  
+  it('should curry 2 arguments', () => {
+    expect(curry2(joinArgs)(1)(2)).to.equal('1,2');
+  });
+  
+  it('should curry 3 arguments', () => {
+    expect(curry3(joinArgs)(1)(2)(3)).to.equal('1,2,3');
   });
 });

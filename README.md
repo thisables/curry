@@ -37,6 +37,18 @@ function join() {
 curryN(join, 3)(1)(2)(3) // => '1,2,3'
 ```
 
+### Curry 1,2 or 3 arguments
+
+```js
+var curry1 = require('chickencurry/1');
+var curry2 = require('chickencurry/2');
+var curry3 = require('chickencurry/3');
+
+curry1(join)(1) // => '1'
+curry2(join)(1)(2) // => '1,2'
+curry3(join)(1)(2)(3) // => '1,2,3'
+```
+
 ### Partial applications
 
 ```js

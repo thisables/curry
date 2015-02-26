@@ -8,6 +8,12 @@ var curryN = _interopRequire(require("./N"));
 
 var __ = _interopRequire(require("./__"));
 
+var curry1 = _interopRequire(require("./1"));
+
+var curry2 = _interopRequire(require("./2"));
+
+var curry3 = _interopRequire(require("./3"));
+
 var sinon = _interopRequire(require("sinon"));
 
 var expect = _interopRequire(require("expect.js"));
@@ -163,5 +169,17 @@ describe("chickencurry", function () {
     expect(curryN(joinArgs, 4)(1)(2)(3)(4)).to.equal("1,2,3,4");
     expect(curryN(joinArgs, 4, 1, 2, 3)(4)).to.equal("1,2,3,4");
     expect(curryN(joinArgs, 4, void 0, 2, 3, 4)(0)).to.equal("0,2,3,4");
+  });
+
+  it("should curry 1 arguments", function () {
+    expect(curry1(joinArgs)(4)).to.equal("4");
+  });
+
+  it("should curry 2 arguments", function () {
+    expect(curry2(joinArgs)(1)(2)).to.equal("1,2");
+  });
+
+  it("should curry 3 arguments", function () {
+    expect(curry3(joinArgs)(1)(2)(3)).to.equal("1,2,3");
   });
 });
