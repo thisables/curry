@@ -1,6 +1,6 @@
 :curry: Chickencurry
 ============
-[![Build Status](https://travis-ci.org/stoeffel/chickencurry.svg)](https://travis-ci.org/stoeffel/chickencurry) [![npm version](https://badge.fury.io/js/chickencurry.svg)](http://badge.fury.io/js/chickencurry) <object data="./coverage.svg" type="image/svg+xml"> </object>
+[![Build Status](https://travis-ci.org/stoeffel/chickencurry.svg)](https://travis-ci.org/stoeffel/chickencurry) [![npm version](https://badge.fury.io/js/chickencurry.svg)](http://badge.fury.io/js/chickencurry)
 > Add some chickencurry to your functions
 
 Library to [curry](http://en.wikipedia.org/wiki/Currying) a function.
