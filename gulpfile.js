@@ -5,6 +5,7 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   mocha = require('gulp-mocha'),
   istanbul = require('gulp-istanbul'),
+  coveralls = require('gulp-coveralls'),
   to5 = require('gulp-babel');
 
 gulp.task('babel', function() {
@@ -30,8 +31,12 @@ gulp.task('test', ['babel'], function() {
       return gulp.src(['test.js'])
         .pipe(mocha())
         .pipe(istanbul.writeReports({
-          reporters: ['html', 'text']
-        }));
+          reporters: ['html', 'text', 'lcovonly']
+        }))
+        .on('finish', function () {
+          return gulp.src(['coverage/lcov.info'])
+            .pipe(coveralls());
+        });
     });
 });
 
