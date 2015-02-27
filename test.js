@@ -14,6 +14,10 @@ var curry2 = _interopRequire(require("./2"));
 
 var curry3 = _interopRequire(require("./3"));
 
+var merge = _interopRequire(require("./lib/merge"));
+
+var count = _interopRequire(require("./lib/countDefinedItems"));
+
 var sinon = _interopRequire(require("sinon"));
 
 var expect = _interopRequire(require("expect.js"));
@@ -185,5 +189,18 @@ describe("chickencurry", function () {
     expect(curry3(joinArgs, 1)(2)(3)).to.equal("1,2,3");
     expect(curry3(joinArgs, 1, 2)(3)).to.equal("1,2,3");
     expect(curry3(joinArgs, 1, 2, 3)()).to.equal("1,2,3");
+  });
+
+  it("should merge two arrays from left to rigth", function () {
+    expect(merge([], [])).to.eql([]);
+    expect(merge([1, 2], [0, undefined, 3])).to.eql([0, 1, 3, 2]);
+  });
+
+  it("should count all defined items", function () {
+    expect(count([])).to.equal(0);
+    expect(count([])).to.equal(0);
+    expect(count([1, 2])).to.equal(2);
+    expect(count([1, undefined, 2])).to.equal(2);
+    expect(count([1, undefined, undefined, 2])).to.equal(2);
   });
 });

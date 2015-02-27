@@ -4,6 +4,8 @@ import __ from './__';
 import curry1 from './1';
 import curry2 from './2';
 import curry3 from './3';
+import merge from './lib/merge';
+import count from './lib/countDefinedItems';
 
 import sinon from 'sinon';
 import expect from 'expect.js';
@@ -176,5 +178,18 @@ describe('chickencurry', () => {
     expect(curry3(joinArgs, 1)(2)(3)).to.equal('1,2,3');
     expect(curry3(joinArgs, 1, 2)(3)).to.equal('1,2,3');
     expect(curry3(joinArgs, 1, 2, 3)()).to.equal('1,2,3');
+  });
+
+  it('should merge two arrays from left to rigth', () => {
+    expect(merge([], [])).to.eql([]);
+    expect(merge([1, 2], [0, undefined, 3])).to.eql([0, 1, 3, 2]);
+  });
+  
+  it('should count all defined items', () => {
+    expect(count([])).to.equal(0);
+    expect(count([])).to.equal(0);
+    expect(count([1, 2])).to.equal(2);
+    expect(count([1, undefined, 2])).to.equal(2);
+    expect(count([1, undefined, undefined, 2])).to.equal(2);
   });
 });
