@@ -4,6 +4,7 @@ var gulp = require('gulp'),
   sourcemaps = require('gulp-sourcemaps'),
   rename = require('gulp-rename'),
   mocha = require('gulp-mocha'),
+  istanbul = require('gulp-istanbul'),
   to5 = require('gulp-babel');
 
 gulp.task('babel', function() {
@@ -22,8 +23,16 @@ gulp.task('babel', function() {
 });
 
 gulp.task('test', ['babel'], function() {
-  return gulp.src('test.js')
-    .pipe(mocha());
+  return gulp.src(['*.js', 'lib/*.js'])
+    .pipe(istanbul())
+    .pipe(istanbul.hookRequire())
+    .on('finish', function () {
+      return gulp.src(['test.js'])
+        .pipe(mocha())
+        .pipe(istanbul.writeReports({
+          reporters: ['html', 'text']
+        }));
+    });
 });
 
 gulp.task('default', ['test'], function() {

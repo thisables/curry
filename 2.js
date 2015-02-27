@@ -2,8 +2,6 @@
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 
-var _toArray = function (arr) { return Array.isArray(arr) ? arr : Array.from(arr); };
-
 var curryN = _interopRequire(require("./N"));
 
 module.exports = function (fn) {
@@ -11,5 +9,5 @@ module.exports = function (fn) {
     args[_key - 1] = arguments[_key];
   }
 
-  return curryN.apply(undefined, [fn, 2].concat(_toArray(args)));
+  return curryN.apply(undefined, [fn, 2].concat(args));
 };

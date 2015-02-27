@@ -18,9 +18,6 @@ var sinon = _interopRequire(require("sinon"));
 
 var expect = _interopRequire(require("expect.js"));
 
-
-
-
 var obj;
 
 function add(a, b) {
@@ -38,7 +35,7 @@ function joinArgs() {
 obj = {
   greeting: "Hello",
 
-  greet: function (name) {
+  greet: function greet(name) {
     return this.greeting + " " + name;
   }
 };
@@ -143,7 +140,7 @@ describe("chickencurry", function () {
   });
 
   it("should be possible to curry arguments of any type", function () {
-    var ajax = function (config, callback) {
+    var ajax = function ajax(config, callback) {
       callback("response for: " + config.url);
     };
     var spy = sinon.spy();
