@@ -1,4 +1,4 @@
-import curryN from './N';
+import curry from './lib/curry';
 
 
-export default (fn, ...args) => curryN(fn, 2, ...args);
+export default (fn, ...args) => curry(fn, 2, args);
