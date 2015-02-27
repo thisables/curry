@@ -4,9 +4,9 @@ var gulp = require('gulp'),
   sourcemaps = require('gulp-sourcemaps'),
   rename = require('gulp-rename'),
   mocha = require('gulp-mocha'),
-  to5 = require('gulp-6to5');
+  to5 = require('gulp-babel');
 
-gulp.task('6to5', function() {
+gulp.task('babel', function() {
   return gulp.src('**/*.es6')
     .pipe(sourcemaps.init())
     .pipe(to5({
@@ -21,7 +21,7 @@ gulp.task('6to5', function() {
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('test', ['6to5'], function() {
+gulp.task('test', ['babel'], function() {
   return gulp.src('test.js')
     .pipe(mocha());
 });
