@@ -14,8 +14,9 @@ gulp.task('6to5', function() {
       loose: 'all'
     }))
     .pipe(sourcemaps.write())
-    .pipe(rename({
-      extname: '.js'
+    .pipe(rename(function (path) {
+      path.dirname = path.dirname.replace('src', '.');
+      path.extname = '.js';
     }))
     .pipe(gulp.dest('./'));
 });
