@@ -5,6 +5,7 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   mocha = require('gulp-mocha'),
   istanbul = require('gulp-istanbul'),
+  coverageBadger = require('istanbul-cobertura-badger'),
   to5 = require('gulp-babel');
 
 gulp.task('babel', function() {
@@ -30,8 +31,14 @@ gulp.task('test', ['babel'], function() {
       return gulp.src(['test.js'])
         .pipe(mocha())
         .pipe(istanbul.writeReports({
-          reporters: ['html', 'text']
-        }));
+          reporters: ['html', 'text', 'cobertura']
+        }))
+        .on('end', function() {
+          coverageBadger('coverage/cobertura-coverage.xml', './', function() {
+            process.exit();
+          });
+
+        });
     });
 });
 
