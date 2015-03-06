@@ -35,7 +35,7 @@ add1(4); // => 5
 var curryN = require('chickencurry/N');
 
 function join() {
-  return Array.prototype.slice.call(arguments).join();
+  return Array.prototype.slice.call(arguments).join(',');
 }
 
 curryN(join, 3)(1)(2)(3) // => '1,2,3'
@@ -59,7 +59,7 @@ curry3(join)(1)(2)(3) // => '1,2,3'
 var curryN = require('chickencurry/N');
 
 function join() {
-  return Array.prototype.slice.call(arguments).join();
+  return Array.prototype.slice.call(arguments).join(',');
 }
 
 curryN(join, 3, 'Fish', 'Chicken')('...'); // => 'Fish,Chicken,...')
