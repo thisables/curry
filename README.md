@@ -32,7 +32,7 @@ add1(4); // => 5
 ### curry with function bind syntax `::` (ES2015)
 
 ```js
-var curry = require('./');
+var curry = require('chickencurry');
 
 var add1 = function(a, b) {
   return a + b;
