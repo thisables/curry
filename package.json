@@ -21,6 +21,17 @@
   "bugs": {
     "url": "http://github.com/stoeffel/chickencurry/issues"
   },
+  "files": [
+    "1.js",
+    "2.js",
+    "3.js",
+    "N.js",
+    "__.js",
+    "index.js",
+    "lib/countDefinedItems.js",
+    "lib/curry.js",
+    "lib/merge.js"
+  ],
   "homepage": "http://github.com/stoeffel/chickencurry",
   "devDependencies": {
     "coveralls": "^2.11.2",
