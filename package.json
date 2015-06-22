@@ -30,7 +30,16 @@
     "index.js",
     "lib/countDefinedItems.js",
     "lib/curry.js",
-    "lib/merge.js"
+    "lib/merge.js",
+    "module/1.js",
+    "module/2.js",
+    "module/3.js",
+    "module/N.js",
+    "module/__.js",
+    "module/index.js",
+    "module/lib/countDefinedItems.js",
+    "module/lib/curry.js",
+    "module/lib/merge.js"
   ],
   "homepage": "http://github.com/stoeffel/chickencurry",
   "devDependencies": {

@@ -10,7 +10,7 @@ var gulp = require('gulp'),
   isTavis = require('is-travis');
 
 gulp.task('babel', function() {
-  return gulp.src('**/*.es6')
+  return gulp.src('module/**/*js')
     .pipe(sourcemaps.init())
     .pipe(to5({
       stage: 0,
@@ -19,7 +19,7 @@ gulp.task('babel', function() {
     }))
     .pipe(sourcemaps.write())
     .pipe(rename(function (path) {
-      path.dirname = path.dirname.replace('src', '.');
+      path.dirname = path.dirname.replace('module', '.');
       path.extname = '.js';
     }))
     .pipe(gulp.dest('./'));
@@ -44,5 +44,5 @@ gulp.task('test', ['babel'], function() {
 });
 
 gulp.task('default', ['test'], function() {
-  gulp.watch('**/*.es6', ['test']);
+  gulp.watch('module/**/*.js', ['test']);
 });
