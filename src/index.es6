@@ -1,4 +1,11 @@
 import curry from './lib/curry';
 
 
-export default (fn, ...args) => curry(fn, fn.length, args);
+export default function(fn, ...args) {
+  if (typeof fn !== 'function') {
+    args = [fn].concat(args);
+    fn = this;
+  }
+
+  return curry(fn, fn.length, args);
+};

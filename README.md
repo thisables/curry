@@ -29,6 +29,25 @@ add1(3); // => 4
 add1(4); // => 5
 ```
 
+### curry with function bind syntax `::` (ES2015)
+
+```js
+var curry = require('./');
+
+var add1 = function(a, b) {
+  return a + b;
+}::curry(1);
+
+add1(3); // => 4
+add1(4); // => 5
+
+var sub = function(a, b) {
+  return a - b;
+}::curry(1);
+
+sub(3)(1); // => 2
+```
+
 ### Curry n arguments
 
 ```js

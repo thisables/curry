@@ -53,6 +53,13 @@ describe('chickencurry', () => {
     expect(spy.calledWith(1, 2, 3)).to.be.ok();
   });
 
+  it('should allow curry by binding the function to this of curry', () => {
+    var addCurried = add::curry();
+    var add1 = add::curry(1);
+    expect(addCurried(2)(4)).to.equal(6);
+    expect(add1(2)).to.equal(3);
+  });
+
   it('should have a placeholder variable', () => {
     expect(__).to.be(undefined);
   });
