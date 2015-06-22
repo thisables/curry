@@ -10,7 +10,7 @@ var gulp = require('gulp'),
   isTavis = require('is-travis');
 
 gulp.task('babel', function() {
-  return gulp.src('module/**/*js')
+  return gulp.src('module/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(to5({
       stage: 0,
