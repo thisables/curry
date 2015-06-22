@@ -13,6 +13,7 @@ gulp.task('babel', function() {
     .pipe(sourcemaps.init())
     .pipe(to5({
       stage: 0,
+      auxiliaryCommentBefore: 'istanbul ignore next',
       loose: 'all'
     }))
     .pipe(sourcemaps.write())

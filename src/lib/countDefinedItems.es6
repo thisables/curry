@@ -1,3 +1,1 @@
-/* istanbul ignore next */
-export default (args) => 
-  [for (i of args) if (typeof i !== 'undefined') i].length;
+export default (args) => args.filter(i => typeof i !== 'undefined').length;
