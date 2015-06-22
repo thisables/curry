@@ -16,4 +16,6 @@ node_modules
 coverage
 
 *.js
+lib/*.js
 !gulpfile.js
+!module/*.js
