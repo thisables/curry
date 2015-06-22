@@ -43,7 +43,7 @@ add1(4); // => 5
 
 var sub = function(a, b) {
   return a - b;
-}::curry(1);
+}::curry();
 
 sub(3)(1); // => 2
 ```
