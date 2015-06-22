@@ -6,7 +6,8 @@ var gulp = require('gulp'),
   mocha = require('gulp-mocha'),
   istanbul = require('gulp-istanbul'),
   coveralls = require('gulp-coveralls'),
-  to5 = require('gulp-babel');
+  to5 = require('gulp-babel'),
+  isTavis = require('is-travis');
 
 gulp.task('babel', function() {
   return gulp.src('**/*.es6')
@@ -29,6 +30,7 @@ gulp.task('test', ['babel'], function() {
     .pipe(istanbul())
     .pipe(istanbul.hookRequire())
     .on('finish', function () {
+      if (isTavis) return true;
       return gulp.src(['test.js'])
         .pipe(mocha())
         .pipe(istanbul.writeReports({
