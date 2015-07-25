@@ -52,3 +52,15 @@ API
 ---
 
 *Work in progress…*
+
+
+
+
+
+License
+-------
+
+[MIT][] © [Christoph Hermann][]
+
+[MIT]: ./LICENSE.md
+[Christoph Hermann]: https://github.com/stoeffel
