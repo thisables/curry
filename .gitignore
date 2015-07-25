@@ -17,6 +17,6 @@ coverage
 
 *.js
 lib/*.js
-!gulpfile.js
+!module.js
 !module/*.js
 !module/lib/*.js

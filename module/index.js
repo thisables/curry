@@ -1,11 +1,9 @@
-import { curry } from './lib/curry';
+import placeholder from './_';
+import curry_ from './curry_';
 
+export default ({Symbol}) => {
+  const _ = placeholder({Symbol});
+  const curry = curry_(_);
 
-export default function(fn, ...args) {
-  if (typeof fn !== 'function') {
-    args = [fn].concat(args);
-    fn = this;
-  }
-
-  return curry(fn, fn.length, args);
+  return {_, curry};
 };
