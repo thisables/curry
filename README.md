@@ -8,18 +8,29 @@
 
 
 
-—and we really mean simple:
+– and we really mean simple:
 
 ```js
 const {curry, _} = require('chickencurry');
 
+
 // Got a simple function?
-const plus = (a, b) => a + b;
+
+const plus = (a, b, c) => a + b + c;
 const plusThree = plus::curry(3);
 
+plusThree(2, 2);  //» 7
+plusThree(2)(2);  //» 7
+
+
 // Got a monster function?
+
 const {open} = require('fs');
 const newScript = open::curry(_, 'w', 0755, _);
+
+newScript('do-wonders.sh', (error, file) => {
+  // The `file` is ready.
+});
 ```
 
 
