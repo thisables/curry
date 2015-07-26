@@ -25,6 +25,10 @@
     "functional"
   ],
   "author": "stoeffel",
+  "contributors": [
+    "Christoph Hermann <schtoeffel@gmail.com> (http://stoeffel.github.io)",
+    "Tomek Wiszniewski <t.wiszniewski@gmail.com> (https://github.com/tomekwi)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "http://github.com/stoeffel/chickencurry/issues"
