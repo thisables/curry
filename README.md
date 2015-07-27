@@ -59,7 +59,6 @@ API
 Maintainers
 -----------
 
-[Christoph Hermann]: https://github.com/stoeffel
 |  [![stoeffel](https://avatars.githubusercontent.com/u/1217681?v=3&s=80)](https://github.com/stoeffel) | [![tomekwi](https://avatars.githubusercontent.com/u/4624660?v=3&s=80)](https://github.com/tomekwi)  |
 | :--:|:--: |
 |  [stoeffel](https://github.com/stoeffel) | [tomekwi](https://github.com/tomekwi)  |
@@ -73,3 +72,4 @@ License
 [MIT][] © [Christoph Hermann][]
 
 [MIT]: ./LICENSE.md
+[Christoph Hermann]: https://github.com/stoeffel
