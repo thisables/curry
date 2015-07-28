@@ -15,8 +15,6 @@ npm-debug.log
 node_modules
 coverage
 
-*.js
-lib/*.js
-!gulpfile.js
-!module/*.js
-!module/lib/*.js
+/*.js
+!/module.js
+!/test.js
