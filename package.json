@@ -10,8 +10,8 @@
     "develop": "nodangel --ignore node_modules --ignore coverage --exec 'npm run --silent test:lite'",
     "prepublish": "npm run --silent clean && npm run transpile",
     "test": "jshint . && npm run test:transpile && node .es5/test.js | tap-spec",
-    "test:lite": "babel-node test.js | tap-spec",
-    "test:transpile": "rm -rf .es5 && babel test.js module/*.js --out-dir .es5",
+    "test:lite": "babel-node --optional es7.functionBind test.js | tap-spec",
+    "test:transpile": "rm -rf .es5 && babel --optional es7.functionBind test.js test/*.js --out-dir .es5 && babel module.js module/*.js --out-dir .es5",
     "transpile": "babel module --out-dir .",
     "view-coverage": "echo 'Generating coverage reports…'; npm run coverage >/dev/null && echo '…done.' && opn ./coverage/lcov-report/index.html >/dev/null"
   },
