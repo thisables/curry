@@ -1,5 +1,5 @@
 import placeholder from './module/_';
-import curry_ from './module/curry';
+import curryFunction from './module/curry';
 
 export const _ = placeholder({Symbol});
-export const curry = curry_({_});
+export const curry = curryFunction({_});

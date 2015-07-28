@@ -1,9 +1,9 @@
 import placeholder from './_';
-import curry_ from './curry_';
+import curryFunction from './curry';
 
 export default ({Symbol}) => {
   const _ = placeholder({Symbol});
-  const curry = curry_(_);
+  const curry = curryFunction(_);
 
   return {_, curry};
 };
