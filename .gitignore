@@ -16,6 +16,7 @@ node_modules
 coverage
 
 *.js
+!test.js
 lib/*.js
 !module.js
 !module/*.js
