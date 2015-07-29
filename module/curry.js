@@ -15,20 +15,19 @@ export default (_) => {
     return arr.reduce((len, curr) => curr === _ ? len : len + 1, 0);
   };
 
-  function curry(...args) {
+  function curry(...initialArgs) {
     const fn = this;
     const len = fn.length;
-    let concatedArgs = args;
 
-    const _curry = (...newArgs) => {
-      concatedArgs = merge(concatedArgs, newArgs);
+    const _curry = (...args) => (...newArgs) => {
+      const concatedArgs = merge(args, newArgs);
       return ((actualLength(concatedArgs) === len) ?
         fn(...concatedArgs) :
-        _curry
+        _curry(...concatedArgs)
       );
     };
 
-    return _curry();
+    return _curry(...initialArgs)();
   }
   return curry;
 };
