@@ -2,7 +2,7 @@ import {curry} from '../module';
 
 const test = require('tape-catch');
 
-const title = (what) => `${what} in an ES6 environment`;
+const title = (what) => `${what} in an ES 2016 environment`;
 
 const weirdMath = (a, b, c) => a - b / c;
   // The order of arguments must be significant here.
