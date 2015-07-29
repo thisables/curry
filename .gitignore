@@ -15,10 +15,14 @@ npm-debug.log
 node_modules
 coverage
 
-**.js
+*.js
 !module.js
 !test.js
-!module/**.js
-!test/**.js
+!module/*.js
+!module/*/*.js
+!module/*/*/*.js
+!test/*.js
+!test/*/*.js
+!test/*/*/*.js
 .es5/module.js
 .es5/test.js
