@@ -9,7 +9,7 @@
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "develop": "nodangel --ignore node_modules --ignore coverage --exec 'npm run --silent test:lite'",
     "prepublish": "npm run --silent clean && npm run transpile",
-    "test": "eslint --ignore-path .gitignore . && npm run test:transpile && node .es5/test.js | tap-spec",
+    "test": "eslint --ignore-path .gitignore .; npm run test:transpile && node .es5/test.js | tap-spec",
     "test:lite": "babel-node --optional es7.functionBind test.js | tap-spec",
     "test:transpile": "rm -rf .es5 && babel --optional es7.functionBind test.js test/*.js --out-dir .es5 && babel module.js module/*.js --out-dir .es5",
     "transpile": "babel module --out-dir .",
