@@ -1,8 +1,10 @@
 export default (_) => {
+  const placeholder = _._ ? _._ : _;
+
   const merge = (dest, origin) => {
     const newArgs = dest.map((i) => {
       let elem = i;
-      if (i === _ && origin[0]) {
+      if (i === placeholder && origin[0]) {
         elem = origin.shift();
       }
       return elem;
@@ -12,7 +14,7 @@ export default (_) => {
   };
 
   const actualLength = (arr) => {
-    return arr.reduce((len, curr) => curr === _ ? len : len + 1, 0);
+    return arr.reduce((len, curr) => curr === placeholder ? len : len + 1, 0);
   };
 
   function curry(...initialArgs) {

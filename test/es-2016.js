@@ -1,8 +1,10 @@
-import {curry} from '../module';
+import {curry, _} from '../module';
 
 const test = require('tape-catch');
 
 const title = (what) => `${what} in an ES 2016 environment`;
+
+const wrap = (text, pre, post) => pre + text + post;
 
 const weirdMath = (a, b, c) => a - b / c;
   // The order of arguments must be significant here.
@@ -54,6 +56,24 @@ test(title(
     moreWeird(4)(2),
     6,
     'with two groups of args'
+  );
+
+  end();
+});
+
+test(title(
+      'Does partial application with placeholders'
+), ({equal, end}) => {
+  equal(
+    wrap::curry(_, '<', '>')('hello'),
+    '<hello>',
+    'with one placeholder'
+  );
+
+  equal(
+    wrap::curry(_, '<')('hello')('>'),
+    '<hello>',
+    'with one placeholder'
   );
 
   end();
