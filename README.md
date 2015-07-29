@@ -11,7 +11,8 @@
 – and we really mean simple:
 
 ```js
-const {curry, _} = require('chickencurry');
+const Symbol = require('es6-symbol');
+const { curry, _ } = require('./module/index')({ Symbol });
 
 
 // Got a simple function?
