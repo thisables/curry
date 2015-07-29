@@ -11,8 +11,7 @@
 – and we really mean simple:
 
 ```js
-const Symbol = require('es6-symbol');
-const { curry, _ } = require('./module/index')({ Symbol });
+import {curry, _} from 'chickencurry/module';
 
 
 // Got a simple function?
