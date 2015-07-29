@@ -1,8 +1,7 @@
 {
   "parser": "babel-eslint",          // https://github.com/babel/babel-eslint
-  "env": {                           // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
-    "browser": true,                 // browser global variables
-    "node": true                     // Node.js global variables and Node.js-specific rules
+  "globals": {                       // We’re targeting node and browsers
+    "require": false
   },
   "ecmaFeatures": {
     "arrowFunctions": true,
