@@ -1,6 +1,4 @@
-export default (_) => {
-  const placeholder = _._ ? _._ : _;
-
+export default ({placeholder}) => {
   const merge = (dest, origin) => {
     const newArgs = dest.map((i) => {
       let elem = i;
