@@ -62,7 +62,7 @@ test('placeholders', (is) => {
   );
 
   is.equal(
-    strJoin::curry(_, 2)(1)(3),
+    strJoin::curry(_, 2, _)(1)(3),
     '123',
     'curries a function'
   );

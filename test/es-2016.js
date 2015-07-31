@@ -4,7 +4,7 @@ const test = require('tape-catch');
 
 const title = (what) => `${what} in an ES 2016 environment`;
 
-const wrap = (text, pre, post) => pre + text + post;
+const wrap = (text, pre, post = '!') => pre + text + post;
 
 const weirdMath = (a, b, c) => a - b / c;
   // The order of arguments must be significant here.
@@ -71,8 +71,8 @@ test(title(
   );
 
   equal(
-    wrap::curry(_, '<')('hello')('>'),
-    '<hello>',
+    wrap::curry(_, '?')('hello'),
+    '?hello!',
     'with one placeholder'
   );
 
