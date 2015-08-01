@@ -53,10 +53,11 @@ API
 
 *Work in progress…*
 
+
 `::` huh?
 ----
 
-If you’re wondering what the `::` thing means, you’d better read this excellent overview by @jussi-kalliokoski or have a look at the function bind syntax proposal.
+If you’re wondering what the `::` thing means, you’d better read this excellent [overview](https://github.com/jussi-kalliokoski/trine/blob/5b735cbfb6b28ae94bac0446d9ecd5ce51fb149b/README.md#why) by [@jussi-kalliokoski](https://github.com/jussi-kalliokoski) or have a look at the [function bind syntax proposal](https://github.com/zenparsing/es-function-bind).
 
 
 Maintainers
