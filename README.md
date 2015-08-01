@@ -47,6 +47,27 @@ npm install chickencurry
 
 
 
+Usage
+---
+
+*Work in progress…*
+
+### Placeholders
+
+A placeholder `_` is a [Symbol](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol) `Symbol('CURRY-THIS-PLACEHOLDER')`.
+Placeholders are replaced from left to right, the next call after a placeholder is passed replaces the previous placeholders one by one.
+
+```js
+const foo = (a, b, c, d) => [a, b, c, d];
+
+const curriedFoo = foo::curry(_, _, _, 4); 
+
+curriedFoo(1)(2)(3); //» [1, 2, 3, 4]
+```
+
+### Arity
+
+
 
 API
 ---
