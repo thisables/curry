@@ -52,6 +52,18 @@ Usage
 
 *Work in progress…*
 
+### Basig usage
+
+The function `curry` is invoked using the [function bind syntax](https://github.com/zenparsing/es-function-bind) and returns a curried function.
+
+```js
+const add = (a, b) => a + b;
+const curriedAdd = add::curry();
+
+curriedAdd(1)(2); //» 3
+```
+
+
 ### Placeholders
 
 A placeholder `_` is a [Symbol](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol) `Symbol('CURRY-THIS-PLACEHOLDER')`.
