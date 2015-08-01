@@ -76,5 +76,11 @@ test(title(
     'with one placeholder'
   );
 
+  equal(
+    wrap::curry(_, _, _)('hello')('<')('>'),
+    '<hello>',
+    'with only placeholder'
+  );
+
   end();
 });

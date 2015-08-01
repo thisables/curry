@@ -65,9 +65,15 @@ const curriedFoo = foo::curry(_, _, _, 4);
 curriedFoo(1)(2)(3); //» [1, 2, 3, 4]
 ```
 
-### Arity
+If you pass a placeholder to `curry` the length of the function is **ignored** instead the initial call of `curry` defines the length of the curried function.
 
+```js
+const foo = (...values) => values;
 
+const curriedFoo = foo::curry(_, _, _);
+
+curriedFoo(1)(2)(3); //» [1, 2, 3]
+```
 
 API
 ---
