@@ -53,7 +53,10 @@ API
 
 *Work in progress…*
 
+`::` huh?
+----
 
+If you’re wondering what the `::` thing means, you’d better read this excellent overview by @jussi-kalliokoski or have a look at the function bind syntax proposal.
 
 
 Maintainers
