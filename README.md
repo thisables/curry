@@ -1,8 +1,14 @@
+<h1 align="center">
+	<img
+		alt="curry-this"
+		src="./logo.png"
+		width="800px"
+		height="400px"
+	/>
+</h1>
+
 [![Build Status](https://travis-ci.org/stoeffel/chickencurry.svg)](https://travis-ci.org/stoeffel/chickencurry) [![npm version](https://badge.fury.io/js/chickencurry.svg)](http://badge.fury.io/js/chickencurry) [![Coverage Status](https://coveralls.io/repos/stoeffel/chickencurry/badge.svg?branch=master)](https://coveralls.io/r/stoeffel/chickencurry?branch=master)
 
-
-:curry: Chickencurry
-============
 
 **Currying made simple.**
 
