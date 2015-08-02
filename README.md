@@ -7,7 +7,7 @@
 	/>
 </h1>
 
-[![Build Status](https://travis-ci.org/stoeffel/chickencurry.svg)](https://travis-ci.org/stoeffel/chickencurry) [![npm version](https://badge.fury.io/js/chickencurry.svg)](http://badge.fury.io/js/chickencurry) [![Coverage Status](https://coveralls.io/repos/stoeffel/chickencurry/badge.svg?branch=master)](https://coveralls.io/r/stoeffel/chickencurry?branch=master)
+[![Build Status](https://travis-ci.org/stoeffel/curry-this.svg)](https://travis-ci.org/stoeffel/curry-this) [![npm version](https://badge.fury.io/js/curry-this.svg)](http://badge.fury.io/js/curry-this) [![Coverage Status](https://coveralls.io/repos/stoeffel/curry-this/badge.svg?branch=master)](https://coveralls.io/r/stoeffel/curry-this?branch=master)
 
 
 **Currying made simple.**
@@ -17,7 +17,7 @@
 – and we really mean simple:
 
 ```js
-import {curry, _} from 'chickencurry/module';
+import {curry, _} from 'curry-this/module';
 
 
 // Got a simple function?
@@ -47,7 +47,7 @@ Installation
 ------------
 
 ```sh
-npm install chickencurry
+npm install curry-this
 ```
 
 

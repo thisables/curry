@@ -1,7 +1,7 @@
 {
-  "name": "chickencurry",
+  "name": "curry-this",
   "version": "2.2.1",
-  "description": "Add some chicken curry to your functions",
+  "description": "Currying made simple",
   "main": "index.js",
   "scripts": {
     "clean": "git reset && echo '/node_modules/' > .gitignore && git add .gitignore && git stash save --include-untracked --keep-index '`npm run clean` trash can' && git clean --force -d && git reset --hard && echo '\nclean: Uncommitted and ignored files have been moved to git’s stash. To restore them run `git stash pop --quiet; git checkout .gitignore`.'",
@@ -17,12 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/stoeffel/chickencurry"
+    "url": "http://github.com/stoeffel/curry-this"
   },
   "keywords": [
     "function",
     "curry",
-    "functional"
+    "functional",
+    "bind"
   ],
   "author": "stoeffel",
   "contributors": [
@@ -31,7 +32,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "http://github.com/stoeffel/chickencurry/issues"
+    "url": "http://github.com/stoeffel/curry-this/issues"
   },
   "files": [
     "/*.js",
@@ -39,7 +40,7 @@
     "/README.md",
     "/LICENSE.md"
   ],
-  "homepage": "http://github.com/stoeffel/chickencurry",
+  "homepage": "http://github.com/stoeffel/curry-this",
   "devDependencies": {
     "babel": "5.8.5",
     "babel-eslint": "4.0.5",
