@@ -2,8 +2,6 @@
 	<img
 		alt="curry-this"
 		src="./logo.png"
-		width="800px"
-		height="400px"
 	/>
 </h1>
 
