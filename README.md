@@ -77,7 +77,7 @@ Placeholders are replaced from left to right, the next call after a placeholder 
 ```js
 const foo = (a, b, c, d) => [a, b, c, d];
 
-const curriedFoo = foo::curry(_, _, _, 4); 
+const curriedFoo = foo::curry(_, _, _, 4);
 
 curriedFoo(1)(2)(3); //» [1, 2, 3, 4]
 ```
