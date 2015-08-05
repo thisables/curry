@@ -67,5 +67,24 @@ test('placeholders', (is) => {
     'curries a function'
   );
 
+  const shaved = strJoin::curry(_, _);
+  is.equal(
+    shaved.length,
+    2,
+    'handles length properly, …'
+  );
+
+  is.equal(
+    shaved('A').length,
+    1,
+    '…even after partial application'
+  );
+
+  is.equal(
+    shaved('A', 'B', 'C'),
+    'ABundefined',
+    'shaves off extra parameters'
+  );
+
   is.end();
 });
