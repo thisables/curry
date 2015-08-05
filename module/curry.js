@@ -1,3 +1,5 @@
+const arity = require('util-arity');
+
 export default ({ placeholder }) => {
   const merge = (dest, origin) => {
     const newArgs = dest.map((i) => {
@@ -21,16 +23,19 @@ export default ({ placeholder }) => {
     const fn = this;
     const len = containsPlaceholder(initialArgs) ? initialArgs.length : fn.length;
 
-    const _curry = (...args) => (...newArgs) => {
-      const concatedArgs = merge(args, newArgs);
-      return ((actualLength(concatedArgs) >= len) ?
-        fn(...concatedArgs.slice(0, len)) :
-        _curry(...concatedArgs)
-      );
+    const _curry = (...args) => {
+      const f = (...newArgs) => {
+        const concatedArgs = merge(args, newArgs);
+        return ((actualLength(concatedArgs) >= len) ?
+          fn(...concatedArgs.slice(0, len)) :
+          _curry(...concatedArgs)
+        );
+      };
+
+      return arity(len - actualLength(args), f);
     };
 
     return _curry(...initialArgs)();
   }
   return curry;
 };
-
