@@ -19,14 +19,12 @@
 – and we really mean simple:
 
 ```js
-import {curry, _} from 'curry-this/module';
+import {curry, _} from 'curry-this';
 
 
 // Got a simple function?
 
-const plus = (
-	(a, b, c) => a + b + c
-)::curry();
+const plus = ( (a, b, c) => a + b + c)::curry();
 
 plus(1, 2, 3);  //» 6
 plus(1)(2, 3);  //» 6
@@ -94,6 +92,14 @@ const foo = (...values) => values;
 const curriedFoo = foo::curry(_, _, _);
 
 curriedFoo(1)(2)(3); //» [1, 2, 3]
+```
+
+### Symbol-polyfill
+
+You can pass a polyfill for the `Symbol`.
+
+```js
+const { curry, _ } = require('curry-this').polyfill({Sympol: require('es6-symbol'});
 ```
 
 ### Arity
