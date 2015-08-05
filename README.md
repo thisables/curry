@@ -20,11 +20,14 @@ import {curry, _} from 'curry-this/module';
 
 // Got a simple function?
 
-const plus = (a, b, c) => a + b + c;
-const plusThree = plus::curry(3);
+const plus = (
+	(a, b, c) => a + b + c
+)::curry();
 
-plusThree(2, 2);  //» 7
-plusThree(2)(2);  //» 7
+plus(1, 2, 3);  //» 6
+plus(1)(2, 3);  //» 6
+plus(1, 2)(3);  //» 6
+plus(1)(2)(3);  //» 6
 
 
 // Got a monster function?
