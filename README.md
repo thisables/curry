@@ -57,7 +57,7 @@ npm install curry-this
 Usage
 ---
 
-### Basig usage
+### Basic usage
 
 The function `curry` is invoked using the [function bind syntax](https://github.com/zenparsing/es-function-bind) and returns a curried function.
 
