@@ -16,7 +16,13 @@ node_modules
 coverage
 
 *.js
-lib/*.js
-!gulpfile.js
+!module.js
+!test.js
 !module/*.js
-!module/lib/*.js
+!module/*/*.js
+!module/*/*/*.js
+!test/*.js
+!test/*/*.js
+!test/*/*/*.js
+.es5/module.js
+.es5/test.js
