@@ -54,8 +54,6 @@ npm install curry-this
 Usage
 ---
 
-*Work in progress…*
-
 ### Basig usage
 
 The function `curry` is invoked using the [function bind syntax](https://github.com/zenparsing/es-function-bind) and returns a curried function.
@@ -91,10 +89,33 @@ const curriedFoo = foo::curry(_, _, _);
 curriedFoo(1)(2)(3); //» [1, 2, 3]
 ```
 
+### Arity
+
+The curried function has a fixed arity. Additional arguments aren't passed.
+
+```js
+const foo = (...values) => values;
+
+const curriedFoo = foo::curry(_, _, _);
+
+curriedFoo(1)(2)(3, 5, 6, 7); //» [1, 2, 3]
+```
+
 API
 ---
 
-*Work in progress…*
+### `fn::curry(...args)`
+
+**Parameters**
+
+**fn** | the function to curry
+-------|----------------------
+**args** | curried arguments or placeholders
+
+**Returns**
+
+A curried function.
+
 
 
 `::` huh?
