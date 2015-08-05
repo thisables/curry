@@ -5,7 +5,11 @@
 	/>
 </h1>
 
-[![Build Status](https://travis-ci.org/stoeffel/curry-this.svg)](https://travis-ci.org/stoeffel/curry-this) [![npm version](https://badge.fury.io/js/curry-this.svg)](http://badge.fury.io/js/curry-this) [![Coverage Status](https://coveralls.io/repos/stoeffel/curry-this/badge.svg?branch=master)](https://coveralls.io/r/stoeffel/curry-this?branch=master)
+[![Build Status](https://travis-ci.org/stoeffel/curry-this.svg)](https://travis-ci.org/stoeffel/curry-this)
+[![Coverage Status](https://coveralls.io/repos/stoeffel/curry-this/badge.svg?branch=master)](https://coveralls.io/r/stoeffel/curry-this?branch=master)
+[![npm version](https://badge.fury.io/js/curry-this.svg)](http://badge.fury.io/js/curry-this)
+[![Dependency Status](https://david-dm.org/stoeffel/curry-this.svg)](https://david-dm.org/1-liners/1-liners)
+[![API-style](https://img.shields.io/badge/API--style-%3A%3A-blue.svg)](https://github.com/zenparsing/es-function-bind)
 
 
 **Currying made simple.**
