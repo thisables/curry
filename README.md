@@ -24,7 +24,9 @@ import {curry, _} from 'curry-this';
 
 // Got a simple function?
 
-const plus = ( (a, b, c) => a + b + c)::curry();
+const plus = (
+	(a, b, c) => a + b + c
+)::curry();
 
 plus(1, 2, 3);  //» 6
 plus(1)(2, 3);  //» 6

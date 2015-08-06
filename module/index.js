@@ -5,7 +5,7 @@ export const polyfill = ({Symbol}) => {
   const _placeholder = placeholder({Symbol});
   return {
     _: _placeholder,
-    curry: curryFunction({placeholder: _placeholder})
+    curry: curryFunction({placeholder: _placeholder}),
   };
 };
 
