@@ -1,7 +1,7 @@
 import placeholder from './_';
 import curryFunction from './curry';
 
-export default ({Symbol}) => {
+export default ({Symbol = Symbol}) => {
   const _ = placeholder({Symbol});
   const curry = curryFunction({placeholder: _});
 
