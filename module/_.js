@@ -1,1 +1,1 @@
-export default ({Symbol}) => Symbol('CURRY-THIS-PLACEHOLDER');
+export default ({Symbol=(str)=>str}) => Symbol('CURRY-THIS-PLACEHOLDER');
