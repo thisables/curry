@@ -101,7 +101,7 @@ curriedFoo(1)(2)(3); //» [1, 2, 3]
 You can pass a polyfill for the `Symbol`.
 
 ```js
-const { curry, _ } = require('curry-this').polyfill({Sympol: require('es6-symbol'});
+const { curry, _ } = require('curry-this').polyfill({Symbol: require('es6-symbol'});
 ```
 
 ### Arity
