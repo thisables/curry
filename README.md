@@ -116,6 +116,27 @@ const curriedFoo = foo::curry(_, _, _);
 curriedFoo(1)(2)(3, 5, 6, 7); //» [1, 2, 3]
 ```
 
+### Not experimental usage
+
+You can still use `curry-this` without the experimental syntax
+
+```js
+const add = (a, b) => a + b;
+const curriedAdd = curry.call(add);
+
+curriedAdd(1)(2); //» 3
+```
+
+Or with placeholders
+
+```js
+const foo = (...values) => values;
+
+const curriedFoo = curry.call(foo, _, _, _);
+
+curriedFoo(1)(2)(3); //» [1, 2, 3]
+```
+
 API
 ---
 

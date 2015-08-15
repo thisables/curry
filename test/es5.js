@@ -88,3 +88,27 @@ test('placeholders', (is) => {
 
   is.end();
 });
+
+test('Not experimental js', (is) => {
+  const strJoin = (a, b, c) => '' + a + b + c;
+
+  is.equal(
+    curry.call(strJoin)(1, 2, 3),
+    '123',
+    'curries a function'
+  );
+
+  is.equal(
+    curry.call(strJoin, _, 2, _)(1)(3),
+    '123',
+    'curries a function'
+  );
+
+  is.equal(
+    curry.apply(strJoin, [_, 2, _])(1)(3),
+    '123',
+    'curries a function'
+  );
+
+  is.end();
+});
