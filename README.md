@@ -75,7 +75,6 @@ curriedAdd(1)(2); //» 3
 
 ### Placeholders
 
-A placeholder `_` is a [Symbol](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol) `Symbol('CURRY-THIS-PLACEHOLDER')`.
 Placeholders are replaced from left to right, the next call after a placeholder is passed replaces the previous placeholders one by one.
 
 ```js
@@ -94,14 +93,6 @@ const foo = (...values) => values;
 const curriedFoo = foo::curry(_, _, _);
 
 curriedFoo(1)(2)(3); //» [1, 2, 3]
-```
-
-### Symbol-polyfill
-
-You can pass a polyfill for the `Symbol`.
-
-```js
-const { curry, _ } = require('curry-this').polyfill({Symbol: require('es6-symbol'});
 ```
 
 ### Arity

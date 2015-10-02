@@ -1,1 +1,1 @@
-export default ({Symbol}) => Symbol('CURRY-THIS-PLACEHOLDER');
+export default () => '__CURRY-THIS-PLACEHOLDER__';
