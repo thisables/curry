@@ -19,7 +19,7 @@
 – and we really mean simple:
 
 ```js
-const {curry, _} = require('curry-this')();
+import {curry, _} from 'curry-this';
 
 
 // Got a simple function?

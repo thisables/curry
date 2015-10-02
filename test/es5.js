@@ -1,6 +1,6 @@
 import test from 'tape-catch';
 
-const {curry, _} = require('../module/index')();
+import {curry, _} from '../module/index';
 
 test('The API is in good shape.', (is) => {
   is.equal(
