@@ -1,1 +1,3 @@
-export default () => '__CURRY-THIS-PLACEHOLDER__';
+import symbol from 'es6-symbol';
+
+export default () => symbol('__CURRY-THIS-PLACEHOLDER__');

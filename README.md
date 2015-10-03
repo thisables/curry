@@ -75,6 +75,7 @@ curriedAdd(1)(2); //» 3
 
 ### Placeholders
 
+A placeholder `_` is a [Symbol](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol) `Symbol('CURRY-THIS-PLACEHOLDER')`.
 Placeholders are replaced from left to right, the next call after a placeholder is passed replaces the previous placeholders one by one.
 
 ```js
