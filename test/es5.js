@@ -1,7 +1,6 @@
 import test from 'tape-catch';
 
-const Symbol = require('es6-symbol');
-const {curry, _} = require('../module/index')({Symbol});
+import {curry, _} from '../module/index';
 
 test('The API is in good shape.', (is) => {
   is.equal(
