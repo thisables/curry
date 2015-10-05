@@ -112,7 +112,7 @@ You can still use `curry-this` without the experimental syntax
 
 ```js
 const add = (a, b) => a + b;
-const curriedAdd = curry.call(add);
+const curriedAdd = curry(add);
 
 curriedAdd(1)(2); //» 3
 ```

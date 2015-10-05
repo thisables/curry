@@ -20,7 +20,7 @@ export default ({ placeholder }) => {
     args.some(arg => arg === placeholder);
 
   function curry(...initialArgs) {
-    const fn = this;
+    const fn = typeof this === 'function' ? this : initialArgs.shift();
     const len = containsPlaceholder(initialArgs) ? initialArgs.length : fn.length;
 
     const _curry = (...args) => {
