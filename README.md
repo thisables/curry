@@ -46,8 +46,6 @@ newScript('do-wonders.sh', (error, file) => {
 
 
 
-
-
 Installation
 ------------
 
