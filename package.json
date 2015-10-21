@@ -56,7 +56,6 @@
     "tape-catch": "1.0.4"
   },
   "dependencies": {
-    "es6-symbol": "^3.0.0",
     "util-arity": "^1.0.0"
   }
 }
