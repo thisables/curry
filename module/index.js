@@ -1,6 +1,9 @@
-import placeholder from './_';
 import curryFunction from './curry';
 
-export const _ = placeholder();
-export const curry = curryFunction({placeholder: _});
+// The placeholder could be any uniquely identifiable object.
+// Its contents are irrelevant.
+// We provide it with a `placeholder` property only to make it easier to
+// see what it is in a debugger window, for example.
+export const _ = {placeholder: 'curry-this'};
 
+export const curry = curryFunction({placeholder: _});
