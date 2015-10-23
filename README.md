@@ -1,14 +1,14 @@
 <h1 align="center">
 	<img
-		alt="curry-this"
+		alt="curry"
 		src="./logo.png"
 	/>
 </h1>
 
-[![Build Status](https://travis-ci.org/stoeffel/curry-this.svg)](https://travis-ci.org/stoeffel/curry-this)
-[![Coverage Status](https://coveralls.io/repos/stoeffel/curry-this/badge.svg?branch=master)](https://coveralls.io/r/stoeffel/curry-this?branch=master)
-[![npm version](https://badge.fury.io/js/curry-this.svg)](http://badge.fury.io/js/curry-this)
-[![Dependency Status](https://david-dm.org/stoeffel/curry-this.svg)](https://david-dm.org/1-liners/1-liners)
+[![Build Status](https://travis-ci.org/thisables/curry.svg)](https://travis-ci.org/stoeffel/curry-this)
+[![Coverage Status](https://coveralls.io/repos/thisables/curry/badge.svg?branch=master)](https://coveralls.io/r/stoeffel/curry-this?branch=master)
+[![npm version](https://badge.fury.io/js/curry.svg)](http://badge.fury.io/js/curry-this)
+[![Dependency Status](https://david-dm.org/thisables/curry.svg)](https://david-dm.org/1-liners/1-liners)
 [![API-style](https://img.shields.io/badge/API--style-%3A%3A-blue.svg)](https://github.com/zenparsing/es-function-bind)
 
 
@@ -19,7 +19,7 @@
 – and we really mean simple:
 
 ```js
-import {curry, _} from 'curry-this';
+import {curry, _} from '@thisables/curry';
 
 
 // Got a simple function?
@@ -50,7 +50,7 @@ Installation
 ------------
 
 ```sh
-npm install curry-this
+npm install @thisables/curry
 ```
 
 
@@ -108,7 +108,7 @@ curriedFoo(1)(2)(3, 5, 6, 7); //» [1, 2, 3]
 
 ### Not experimental usage
 
-You can still use `curry-this` without the experimental syntax
+You can still use `curry` without the experimental syntax
 
 ```js
 const add = (a, b) => a + b;
