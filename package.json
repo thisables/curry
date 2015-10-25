@@ -1,5 +1,5 @@
 {
-  "name": "curry-this",
+  "name": "@thisables/curry",
   "version": "3.1.0",
   "description": "Currying made simple",
   "main": "index.js",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/stoeffel/curry-this"
+    "url": "http://github.com/thisables/curry"
   },
   "keywords": [
     "function",
@@ -35,7 +35,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "http://github.com/stoeffel/curry-this/issues"
+    "url": "http://github.com/thisables/curry/issues"
   },
   "files": [
     "/*.js",
@@ -43,7 +43,7 @@
     "/README.md",
     "/LICENSE.md"
   ],
-  "homepage": "http://github.com/stoeffel/curry-this",
+  "homepage": "http://github.com/thisables/curry",
   "devDependencies": {
     "babel": "^5.8.21",
     "babel-eslint": "4.1.3",

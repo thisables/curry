@@ -4,6 +4,6 @@ import curryFunction from './curry';
 // Its contents are irrelevant.
 // We provide it with a `placeholder` property only to make it easier to
 // see what it is in a debugger window, for example.
-export const _ = {placeholder: 'curry-this'};
+export const _ = {placeholder: '@thisables/curry'};
 
 export const curry = curryFunction({placeholder: _});
