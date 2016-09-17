@@ -21,7 +21,7 @@ export default ({ placeholder }) => {
 
   function curry(...initialArgs) {
     const fn = this;
-    const len = containsPlaceholder(initialArgs) ? initialArgs.length : fn.length;
+    const len = containsPlaceholder(initialArgs) ? Math.max(fn.length, initialArgs.length) : fn.length;
 
     const _curry = (...args) => {
       const f = (...newArgs) => {
