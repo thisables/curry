@@ -84,3 +84,27 @@ test(title(
 
   end();
 });
+
+test(title(
+      'Has a none experimental API'
+), ({equal, end}) => {
+  equal(
+    curry(wrap, _, '<', '>')('hello'),
+    '<hello>',
+    'with one placeholder'
+  );
+
+  equal(
+    curry(wrap, _, '?')('hello'),
+    '?hello!',
+    'with one placeholder'
+  );
+
+  equal(
+    curry(wrap, _, _, _)('hello')('<')('>'),
+    '<hello>',
+    'with only placeholder'
+  );
+
+  end();
+});
